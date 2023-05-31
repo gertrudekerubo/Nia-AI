@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Chatbot } from 'react-chatbot-kit';
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -49,6 +50,18 @@ const Chatbot = () => {
       }
     }
   };
+  function sendMessage() {
+    const userInput = document.querySelector('.user-input input');
+    const message = userInput.value;
+  
+    if (message.trim() !== '') {
+      userInput.value = '';
+      displayUserMessage(message);
+      simulateBotTyping();
+      // Perform other chatbot actions or API calls here
+    }
+ 
+  
 
   return (
     <div>
